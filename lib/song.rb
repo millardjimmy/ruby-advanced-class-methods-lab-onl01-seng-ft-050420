@@ -28,4 +28,55 @@ class Song
     song 
   end 
 
+  def self.find_by_name(title)
+    result = self.all.detect {|song| song.name == title}
+    result
+  end
+  
+  def find_or_create_by_name(title)
+    result = self.find_by_name(title)
+    if result
+      puts result
+    else 
+      self.create_by_name
+    end
+  end
+  
+  def self.alphabetical
+    sorted = self.all.sort_by {|song| song.name}
+    sorted
+  end
+  
+  def self.new_from_filename
+  end
+  
+  def self.create_from_filename
+  end 
+  
+  def self.destroy_all
+  end 
+  
+  
+  
+  
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
